@@ -198,6 +198,23 @@ img {
   border-width: 0;
 }
 
+/* Language Support */
+.lang-en {
+  display: block;
+}
+
+.lang-ko {
+  display: none;
+}
+
+[data-language="ko"] .lang-en {
+  display: none;
+}
+
+[data-language="ko"] .lang-ko {
+  display: block;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   :root {

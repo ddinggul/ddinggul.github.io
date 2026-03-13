@@ -2,6 +2,7 @@
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
+import LanguageToggle from '../components/LanguageToggle.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -48,16 +49,20 @@ const socialImage = image ? new URL(image, Astro.site) : new URL('/og-image.png'
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Theme Script (prevent flash) -->
+    <!-- Theme & Language Scripts (prevent flash) -->
     <script is:inline>
       (function() {
         const theme = localStorage.getItem('theme') || 'light';
         document.documentElement.setAttribute('data-theme', theme);
+
+        const language = localStorage.getItem('language') || 'en';
+        document.documentElement.setAttribute('data-language', language);
       })();
     </script>
   </head>
   <body>
     <Navigation>
+      <LanguageToggle slot="language-toggle" />
       <ThemeToggle slot="theme-toggle" />
     </Navigation>
 

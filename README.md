@@ -8,6 +8,7 @@ A modern, clean portfolio and blog website built with Astro, showcasing research
 
 - **Portfolio Pages**: Home, About, Projects, CV, Contact
 - **Blog System**: Markdown-based blog with tags, categories, and search
+- **Bilingual Support**: Korean/English language toggle with localStorage persistence
 - **Dark/Light Mode**: Theme toggle with localStorage persistence
 - **SEO Optimized**: Meta tags, Open Graph, sitemap, and RSS feed
 - **Responsive Design**: Mobile-first, works on all devices

@@ -2,12 +2,12 @@
 const currentPath = Astro.url.pathname;
 
 const navItems = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/cv', label: 'CV' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/', labelEn: 'Home', labelKo: '홈' },
+  { href: '/about', labelEn: 'About', labelKo: '소개' },
+  { href: '/projects', labelEn: 'Projects', labelKo: '프로젝트' },
+  { href: '/blog', labelEn: 'Blog', labelKo: '블로그' },
+  { href: '/cv', labelEn: 'CV', labelKo: '이력서' },
+  { href: '/contact', labelEn: 'Contact', labelKo: '연락' },
 ];
 ---
 
@@ -31,12 +31,14 @@ const navItems = [
               href={item.href}
               class={currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href)) ? 'nav-link active' : 'nav-link'}
             >
-              {item.label}
+              <span class="nav-label" data-lang="en">{item.labelEn}</span>
+              <span class="nav-label" data-lang="ko">{item.labelKo}</span>
             </a>
           </li>
         ))}
       </ul>
-      <div class="nav-theme-toggle">
+      <div class="nav-controls">
+        <slot name="language-toggle" />
         <slot name="theme-toggle" />
       </div>
     </div>
@@ -80,10 +82,7 @@ const navItems = [
   }
 
   .nav-logo-name {
-    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--color-accent);
   }
 
   .nav-toggle {
@@ -133,6 +132,28 @@ const navItems = [
   .nav-link.active {
     color: var(--color-accent);
     font-weight: 600;
+  }
+
+  .nav-label {
+    display: none;
+  }
+
+  .nav-label[data-lang="en"] {
+    display: inline;
+  }
+
+  [data-language="ko"] .nav-label[data-lang="en"] {
+    display: none;
+  }
+
+  [data-language="ko"] .nav-label[data-lang="ko"] {
+    display: inline;
+  }
+
+  .nav-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
   }
 
   @media (max-width: 768px) {

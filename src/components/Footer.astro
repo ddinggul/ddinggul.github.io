@@ -6,15 +6,20 @@ const currentYear = new Date().getFullYear();
   <div class="footer-container">
     <div class="footer-content">
       <div class="footer-section">
-        <h3>Junseo Choi</h3>
-        <p class="footer-description">
+        <h3 class="lang-en">Junseo Choi</h3>
+        <h3 class="lang-ko">최준서</h3>
+        <p class="footer-description lang-en">
           Researcher in Experimental Phonetics, Acoustic Phonetics, and Computational Linguistics
+        </p>
+        <p class="footer-description lang-ko">
+          실험음성학, 음향음성학, 전산언어학 연구자
         </p>
       </div>
 
       <div class="footer-section">
-        <h4>Quick Links</h4>
-        <ul class="footer-links">
+        <h4 class="lang-en">Quick Links</h4>
+        <h4 class="lang-ko">바로가기</h4>
+        <ul class="footer-links lang-en">
           <li><a href="/">Home</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/projects">Projects</a></li>
@@ -22,20 +27,35 @@ const currentYear = new Date().getFullYear();
           <li><a href="/cv">CV</a></li>
           <li><a href="/contact">Contact</a></li>
         </ul>
+        <ul class="footer-links lang-ko">
+          <li><a href="/">홈</a></li>
+          <li><a href="/about">소개</a></li>
+          <li><a href="/projects">프로젝트</a></li>
+          <li><a href="/blog">블로그</a></li>
+          <li><a href="/cv">이력서</a></li>
+          <li><a href="/contact">연락</a></li>
+        </ul>
       </div>
 
       <div class="footer-section">
-        <h4>Connect</h4>
-        <ul class="footer-links">
+        <h4 class="lang-en">Connect</h4>
+        <h4 class="lang-ko">연결</h4>
+        <ul class="footer-links lang-en">
           <li><a href="mailto:litterrariuschwy@gmail.com">Email</a></li>
           <li><a href="https://github.com/ddinggul" target="_blank" rel="noopener noreferrer">GitHub</a></li>
           <li><a href="https://instagram.com/2dinggul_myroom" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        </ul>
+        <ul class="footer-links lang-ko">
+          <li><a href="mailto:litterrariuschwy@gmail.com">이메일</a></li>
+          <li><a href="https://github.com/ddinggul" target="_blank" rel="noopener noreferrer">깃허브</a></li>
+          <li><a href="https://instagram.com/2dinggul_myroom" target="_blank" rel="noopener noreferrer">인스타그램</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; {currentYear} Junseo Choi. All rights reserved.</p>
+      <p class="lang-en">&copy; {currentYear} Junseo Choi. All rights reserved.</p>
+      <p class="lang-ko">&copy; {currentYear} 최준서. All rights reserved.</p>
       <p class="footer-built">Built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a></p>
     </div>
   </div>

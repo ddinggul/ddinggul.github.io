@@ -19,18 +19,26 @@ const recentPosts = (await getCollection('blog'))
     <div class="container-narrow">
       <div class="hero-content">
         <h1 class="hero-title">
-          Junseo Choi
+          <span class="lang-en">Junseo Choi</span>
+          <span class="lang-ko">최준서</span>
         </h1>
         <p class="hero-subtitle">
-          Computational Linguistics & Phonetics Researcher
+          <span class="lang-en">Computational Linguistics & Phonetics Researcher</span>
+          <span class="lang-ko">전산언어학 및 음성학 연구자</span>
         </p>
         <p class="hero-description">
-          Exploring the computational analysis of speech and language, with a focus on
-          <strong>prosody</strong>, <strong>L1-L2 speech comparison</strong>, and
-          <strong>AI-based language learning applications</strong>.
+          <span class="lang-en">
+            Exploring the computational analysis of speech and language, with a focus on
+            <strong>prosody</strong>, <strong>L1-L2 speech comparison</strong>, and
+            <strong>AI-based language learning applications</strong>.
+          </span>
+          <span class="lang-ko">
+            <strong>운율</strong>, <strong>모국어-제2언어 음성 비교</strong>, 그리고
+            <strong>AI 기반 언어 학습 애플리케이션</strong>에 중점을 둔 음성 및 언어의 전산 분석을 연구하고 있습니다.
+          </span>
         </p>
 
-        <div class="hero-keywords">
+        <div class="hero-keywords lang-en">
           <span class="keyword">Experimental Phonetics</span>
           <span class="keyword">Acoustic Phonetics</span>
           <span class="keyword">Computational Linguistics</span>
@@ -38,9 +46,23 @@ const recentPosts = (await getCollection('blog'))
           <span class="keyword">AI for Language Learning</span>
         </div>
 
+        <div class="hero-keywords lang-ko">
+          <span class="keyword">실험음성학</span>
+          <span class="keyword">음향음성학</span>
+          <span class="keyword">전산언어학</span>
+          <span class="keyword">음성 운율</span>
+          <span class="keyword">AI 언어 학습</span>
+        </div>
+
         <div class="hero-actions">
-          <Button href="/projects">View Projects</Button>
-          <Button href="/blog" variant="outline">Read Blog</Button>
+          <span class="lang-en">
+            <Button href="/projects">View Projects</Button>
+            <Button href="/blog" variant="outline">Read Blog</Button>
+          </span>
+          <span class="lang-ko">
+            <Button href="/projects">프로젝트 보기</Button>
+            <Button href="/blog" variant="outline">블로그 읽기</Button>
+          </span>
         </div>
       </div>
     </div>
@@ -49,17 +71,32 @@ const recentPosts = (await getCollection('blog'))
   <!-- About Preview Section -->
   <section class="about-preview section">
     <div class="container-narrow">
-      <h2>About Me</h2>
-      <p>
-        I am interested in experimental phonetics, acoustic phonetics, and computational linguistics.
-        My work focuses on the computational analysis of speech and language data, especially prosody,
-        L1-L2 speech comparison, and AI-based language learning applications.
-      </p>
-      <p>
-        I combine rigorous linguistic analysis with modern computational methods to understand
-        how humans produce and perceive speech, and how technology can support language learning.
-      </p>
-      <Button href="/about" variant="secondary">Learn More About Me</Button>
+      <h2 class="lang-en">About Me</h2>
+      <h2 class="lang-ko">소개</h2>
+
+      <div class="lang-en">
+        <p>
+          I am interested in experimental phonetics, acoustic phonetics, and computational linguistics.
+          My work focuses on the computational analysis of speech and language data, especially prosody,
+          L1-L2 speech comparison, and AI-based language learning applications.
+        </p>
+        <p>
+          I combine rigorous linguistic analysis with modern computational methods to understand
+          how humans produce and perceive speech, and how technology can support language learning.
+        </p>
+        <Button href="/about" variant="secondary">Learn More About Me</Button>
+      </div>
+
+      <div class="lang-ko">
+        <p>
+          저는 실험음성학, 음향음성학, 전산언어학에 관심을 가지고 있습니다.
+          특히 운율, 모국어-제2언어 음성 비교, AI 기반 언어 학습 애플리케이션 등 음성 및 언어 데이터의 전산 분석에 집중하고 있습니다.
+        </p>
+        <p>
+          언어학적 분석과 현대적인 전산 방법론을 결합하여 인간이 음성을 생성하고 인식하는 방식, 그리고 기술이 언어 학습을 어떻게 지원할 수 있는지를 연구합니다.
+        </p>
+        <Button href="/about" variant="secondary">더 알아보기</Button>
+      </div>
     </div>
   </section>
 
@@ -67,7 +104,8 @@ const recentPosts = (await getCollection('blog'))
   {recentPosts.length > 0 && (
     <section class="recent-posts section">
       <div class="container">
-        <h2 class="section-title">Recent Blog Posts</h2>
+        <h2 class="section-title lang-en">Recent Blog Posts</h2>
+        <h2 class="section-title lang-ko">최근 블로그 포스트</h2>
         <div class="posts-grid">
           {recentPosts.map(post => (
             <Card href={`/blog/${post.slug}`} class="post-card">
@@ -87,7 +125,12 @@ const recentPosts = (await getCollection('blog'))
           ))}
         </div>
         <div class="view-all">
-          <Button href="/blog" variant="secondary">View All Posts</Button>
+          <span class="lang-en">
+            <Button href="/blog" variant="secondary">View All Posts</Button>
+          </span>
+          <span class="lang-ko">
+            <Button href="/blog" variant="secondary">모든 포스트 보기</Button>
+          </span>
         </div>
       </div>
     </section>
