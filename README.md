@@ -8,6 +8,7 @@ A modern, clean portfolio and blog website built with Astro, showcasing research
 
 - **Portfolio Pages**: Home, About, Projects, CV, Contact
 - **Blog System**: Markdown-based blog with tags, categories, and search
+- **Web-based CMS**: Decap CMS for content management (accessible at `/admin`)
 - **Bilingual Support**: Korean/English language toggle with localStorage persistence
 - **Dark/Light Mode**: Theme toggle with localStorage persistence
 - **SEO Optimized**: Meta tags, Open Graph, sitemap, and RSS feed
@@ -115,6 +116,28 @@ ddinggul.github.io/
 - `npm run astro` - Run Astro CLI commands
 
 ## Content Management
+
+### Option 1: Web-based CMS (Recommended) 🌐
+
+Access the admin panel at **https://ddinggul.github.io/admin**
+
+**Features:**
+- ✅ Write and edit blog posts in a web interface
+- ✅ Markdown editor with live preview
+- ✅ Upload images directly
+- ✅ Manage projects and pages
+- ✅ Automatic Git commits and deployment
+
+**Setup:**
+See [CMS_SETUP.md](./CMS_SETUP.md) for detailed setup instructions (5 minutes)
+
+**Quick Start:**
+1. Set up Netlify Identity (see CMS_SETUP.md)
+2. Go to `/admin`
+3. Login with your account
+4. Start creating content!
+
+### Option 2: Manual Markdown Editing
 
 ### Adding a New Blog Post
 
