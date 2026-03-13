@@ -1,0 +1,212 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Card from '../../components/Card.astro';
+import { getCollection } from 'astro:content';
+import { formatDate } from '../../utils/helpers';
+
+const allPosts = await getCollection('blog');
+const publishedPosts = allPosts
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+// Get all unique tags
+const allTags = Array.from(
+  new Set(publishedPosts.flatMap(post => post.data.tags))
+).sort();
+---
+
+<PageLayout
+  title="Blog - Junseo Choi"
+  description="Research notes, development logs, and reflections on computational linguistics, phonetics, and AI for language learning."
+  pageTitle="Blog"
+  wide={true}
+>
+  <div class="blog-intro">
+    <p>
+      Research notes, technical development logs, and reflections on language, AI, and education.
+    </p>
+  </div>
+
+  <div class="blog-filters">
+    <div class="filter-label">Filter by tag:</div>
+    <div class="tags-list">
+      <button class="tag-filter active" data-tag="all">All ({publishedPosts.length})</button>
+      {allTags.map(tag => {
+        const count = publishedPosts.filter(post => post.data.tags.includes(tag)).length;
+        return (
+          <button class="tag-filter" data-tag={tag}>
+            {tag} ({count})
+          </button>
+        );
+      })}
+    </div>
+  </div>
+
+  <div class="posts-list">
+    {publishedPosts.map(post => (
+      <Card href={`/blog/${post.slug}`} class="post-card" data-tags={post.data.tags.join(',')}>
+        <div class="post-header">
+          <h2>{post.data.title}</h2>
+          <time datetime={post.data.pubDate.toISOString()}>
+            {formatDate(post.data.pubDate)}
+          </time>
+        </div>
+        <p class="post-description">{post.data.description}</p>
+        <div class="post-tags">
+          {post.data.tags.map(tag => (
+            <span class="tag">#{tag}</span>
+          ))}
+        </div>
+      </Card>
+    ))}
+  </div>
+
+  {publishedPosts.length === 0 && (
+    <div class="no-posts">
+      <p>No blog posts yet. Check back soon!</p>
+    </div>
+  )}
+</PageLayout>
+
+<style>
+  .blog-intro {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+  }
+
+  .blog-filters {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: var(--space-md);
+    margin-bottom: var(--space-xl);
+  }
+
+  .filter-label {
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-primary);
+  }
+
+  .tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .tag-filter {
+    background-color: var(--color-bg);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    padding: 0.4rem 0.8rem;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition);
+  }
+
+  .tag-filter:hover,
+  .tag-filter.active {
+    background-color: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+  }
+
+  .posts-list {
+    display: grid;
+    gap: var(--space-lg);
+  }
+
+  .post-card {
+    transition: all var(--transition);
+  }
+
+  .post-card[data-hidden="true"] {
+    display: none;
+  }
+
+  .post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-md);
+    margin-bottom: var(--space-sm);
+  }
+
+  .post-header h2 {
+    font-size: var(--text-2xl);
+    margin: 0;
+    flex: 1;
+  }
+
+  .post-header time {
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    white-space: nowrap;
+  }
+
+  .post-description {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-md);
+  }
+
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .tag {
+    color: var(--color-accent);
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+
+  .no-posts {
+    text-align: center;
+    padding: var(--space-2xl);
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .post-header {
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .post-header time {
+      font-size: var(--text-xs);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tagFilters = document.querySelectorAll('.tag-filter');
+    const postCards = document.querySelectorAll('.post-card');
+
+    tagFilters.forEach(button => {
+      button.addEventListener('click', () => {
+        const selectedTag = button.getAttribute('data-tag');
+
+        // Update active state
+        tagFilters.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        // Filter posts
+        postCards.forEach(card => {
+          const postTags = card.getAttribute('data-tags')?.split(',') || [];
+
+          if (selectedTag === 'all' || (selectedTag && postTags.includes(selectedTag))) {
+            card.removeAttribute('data-hidden');
+          } else {
+            card.setAttribute('data-hidden', 'true');
+          }
+        });
+      });
+    });
+  });
+</script>
