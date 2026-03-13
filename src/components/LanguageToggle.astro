@@ -1,0 +1,85 @@
+---
+// Language toggle component for Korean/English switching
+---
+
+<button id="language-toggle" class="language-toggle" aria-label="Toggle language">
+  <span class="lang-text" data-lang="en">EN</span>
+  <span class="lang-text" data-lang="ko">한</span>
+</button>
+
+<style>
+  .language-toggle {
+    background: none;
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-secondary);
+    transition: all var(--transition);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    min-width: 45px;
+  }
+
+  .language-toggle:hover {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+
+  .lang-text {
+    display: none;
+  }
+
+  .lang-text[data-lang="en"] {
+    display: block;
+  }
+
+  [data-language="ko"] .lang-text[data-lang="en"] {
+    display: none;
+  }
+
+  [data-language="ko"] .lang-text[data-lang="ko"] {
+    display: block;
+  }
+</style>
+
+<script is:inline>
+  function initLanguage() {
+    const language = localStorage.getItem('language') || 'en';
+    document.documentElement.setAttribute('data-language', language);
+  }
+
+  function toggleLanguage() {
+    const currentLanguage = document.documentElement.getAttribute('data-language');
+    const newLanguage = currentLanguage === 'en' ? 'ko' : 'en';
+    document.documentElement.setAttribute('data-language', newLanguage);
+    localStorage.setItem('language', newLanguage);
+
+    // Trigger custom event for other components to react
+    window.dispatchEvent(new CustomEvent('languagechange', { detail: { language: newLanguage } }));
+  }
+
+  // Initialize language on page load
+  initLanguage();
+
+  // Add event listener
+  document.addEventListener('DOMContentLoaded', () => {
+    const languageToggle = document.getElementById('language-toggle');
+    if (languageToggle) {
+      languageToggle.addEventListener('click', toggleLanguage);
+    }
+  });
+
+  // Handle language on page navigation (for SPA-like behavior)
+  document.addEventListener('astro:page-load', () => {
+    initLanguage();
+    const languageToggle = document.getElementById('language-toggle');
+    if (languageToggle) {
+      languageToggle.addEventListener('click', toggleLanguage);
+    }
+  });
+</script>
