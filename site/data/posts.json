@@ -1,0 +1,31 @@
+{
+  "posts": [
+    {
+      "id": "building-ai-vocabulary-app",
+      "title": "Building an AI-Powered Vocabulary Learning App",
+      "description": "Design notes from an adaptive vocabulary learning system that uses feedback loops and context-aware practice.",
+      "date": "2024-10-28",
+      "tags": ["AI", "language-learning", "development"],
+      "draft": false,
+      "body": "## The Problem Space\n\nTraditional vocabulary learning often relies on static flashcards, fixed review schedules, and decontextualized word lists. I am interested in a system that notices how each learner remembers and forgets individual words.\n\n## Design Goals\n\n- Adaptive review schedules\n- Contextual examples instead of isolated words\n- Active production practice\n- Feedback that explains why an answer works or fails\n\nThe larger question is how language technology can support learning without flattening the complexity of real language use."
+    },
+    {
+      "id": "computational-speech-analysis",
+      "title": "Computational Approaches to Speech Analysis",
+      "description": "A compact map of signal processing, pitch tracking, and computational methods for speech research.",
+      "date": "2024-09-12",
+      "tags": ["phonetics", "speech-analysis", "methods"],
+      "draft": false,
+      "body": "## The Speech Signal\n\nSpeech is a time-varying acoustic signal carrying linguistic and paralinguistic information. Computational analysis lets us inspect timing, spectral structure, pitch, rhythm, and intensity at scale.\n\n## Useful Layers\n\n- Acoustic level: waveform, energy, spectral properties\n- Phonetic level: segments, timing, voicing\n- Prosodic level: pitch contours, rhythm, stress patterns\n\nFor my work, the most interesting layer is often the bridge between acoustic measurement and linguistic interpretation."
+    },
+    {
+      "id": "why-prosody-research-matters",
+      "title": "Why Prosody Research Matters",
+      "description": "A reflection on pitch, rhythm, stress, and the parts of speech that written words do not fully capture.",
+      "date": "2024-08-05",
+      "tags": ["prosody", "phonetics", "research"],
+      "draft": false,
+      "body": "## Beyond Words\n\nProsody carries information that written text cannot fully show: emphasis, grouping, stance, timing, and affect. These patterns shape how listeners interpret speech.\n\n## Research Direction\n\nI am especially interested in how prosodic cues differ across speakers and languages, and how computational tools can make those differences visible without reducing them to a single number."
+    }
+  ]
+}

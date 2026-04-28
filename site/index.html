@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Junseo Choi's personal website for computational linguistics, phonetics, and AI language learning research." />
+    <title>Junseo Choi | Computational Linguistics & Phonetics</title>
+    <link rel="icon" href="favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Junseo Choi home">Junseo Choi</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav">
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+        <button class="icon-button" id="language-toggle" type="button" aria-label="Toggle language">KO</button>
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle theme">Dark</button>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span data-lang="en">Computational linguistics · phonetics · AI learning tools</span>
+            <span data-lang="ko">전산언어학 · 음성학 · AI 학습 도구</span>
+          </p>
+          <h1>
+            <span data-lang="en">I study speech, language, and the systems that help people learn them.</span>
+            <span data-lang="ko">말과 언어, 그리고 그것을 배우게 돕는 시스템을 연구합니다.</span>
+          </h1>
+          <p class="hero-text">
+            <span data-lang="en">My work connects prosody, L1-L2 speech comparison, acoustic analysis, and practical language-learning applications.</span>
+            <span data-lang="ko">운율, 모국어-제2언어 음성 비교, 음향 분석, 실제 언어 학습 애플리케이션을 연결합니다.</span>
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#blog">Read Blog</a>
+            <a class="button secondary" href="#research">Explore Research</a>
+          </div>
+        </div>
+        <div class="speech-board" aria-label="Animated speech signal">
+          <div class="signal-grid"></div>
+          <div class="wave wave-one"></div>
+          <div class="wave wave-two"></div>
+          <div class="scan-dot"></div>
+          <div class="signal-card">
+            <span>F0</span>
+            <strong>212 Hz</strong>
+          </div>
+          <div class="signal-card lower">
+            <span>Rhythm</span>
+            <strong>0.74</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="research">
+        <div class="section-heading">
+          <p class="eyebrow">
+            <span data-lang="en">Interactive research map</span>
+            <span data-lang="ko">인터랙티브 연구 지도</span>
+          </p>
+          <h2>
+            <span data-lang="en">Pick a question to follow the thread.</span>
+            <span data-lang="ko">궁금한 질문을 골라 흐름을 따라가 보세요.</span>
+          </h2>
+        </div>
+        <div class="topic-shell">
+          <div class="topic-tabs" role="tablist" aria-label="Research topics">
+            <button class="topic-tab active" type="button" data-topic="prosody">Prosody</button>
+            <button class="topic-tab" type="button" data-topic="comparison">L1-L2</button>
+            <button class="topic-tab" type="button" data-topic="tools">AI Tools</button>
+          </div>
+          <article class="topic-panel active" data-topic-panel="prosody">
+            <h3>How does speech carry meaning beyond words?</h3>
+            <p>Prosody shapes emphasis, grouping, affect, and stance. I am interested in making these patterns measurable without losing their linguistic nuance.</p>
+          </article>
+          <article class="topic-panel" data-topic-panel="comparison">
+            <h3>Where does second-language speech converge or diverge?</h3>
+            <p>L1-L2 comparison can reveal subtle differences in timing, pitch movement, and stress. These differences are useful for both theory and learner feedback.</p>
+          </article>
+          <article class="topic-panel" data-topic-panel="tools">
+            <h3>What should language-learning AI actually help with?</h3>
+            <p>I care about feedback that is contextual, specific, and usable: not just scores, but explanations that help learners notice patterns.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section muted" id="projects">
+        <div class="section-heading">
+          <p class="eyebrow">Selected Work</p>
+          <h2>Research and development interests</h2>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <span class="card-tag">Research</span>
+            <h3>Computational speech analysis</h3>
+            <p>Acoustic and prosodic analysis for speech datasets, with attention to interpretable measurements.</p>
+          </article>
+          <article class="card">
+            <span class="card-tag">Application</span>
+            <h3>Adaptive vocabulary learning</h3>
+            <p>AI-assisted language practice that adapts to learner progress and produces useful feedback.</p>
+          </article>
+          <article class="card">
+            <span class="card-tag">Writing</span>
+            <h3>Research notes</h3>
+            <p>Short posts about phonetics, language technology, and the process of building learning tools.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="blog">
+        <div class="section-heading with-action">
+          <div>
+            <p class="eyebrow">Blog</p>
+            <h2>Notes, logs, and reflections</h2>
+          </div>
+          <button class="admin-trigger" type="button">Author tools</button>
+        </div>
+        <div class="blog-controls">
+          <label>
+            Search
+            <input id="post-search" type="search" placeholder="Title, description, or tag" />
+          </label>
+          <label>
+            Tag
+            <select id="tag-filter">
+              <option value="all">All tags</option>
+            </select>
+          </label>
+        </div>
+        <p class="result-count" id="result-count"></p>
+        <div class="post-list" id="post-list"></div>
+        <article class="post-reader" id="post-reader" hidden></article>
+      </section>
+
+      <section class="section muted contact-section" id="contact">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Let us talk about language, speech, or learning tools.</h2>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:litterrariuschwy@gmail.com">Email</a>
+          <a href="https://github.com/ddinggul">GitHub</a>
+          <a href="https://www.instagram.com/2dinggul_myroom">Instagram</a>
+        </div>
+      </section>
+    </main>
+
+    <aside class="admin-panel" id="admin-panel" aria-live="polite">
+      <button class="admin-close" type="button" aria-label="Close author tools">×</button>
+      <p class="eyebrow">Author mode</p>
+      <h2>Write and edit posts</h2>
+      <p>Editing is handled by Decap CMS and protected by your GitHub repository permissions. Visitors can see this button only after you reveal it, but publishing still requires authorized GitHub access.</p>
+      <a class="button" href="admin/">Open CMS</a>
+    </aside>
+
+    <footer class="site-footer">
+      <span>© <span id="year"></span> Junseo Choi</span>
+      <span>Static HTML · CSS · JavaScript</span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

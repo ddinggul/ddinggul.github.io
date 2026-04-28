@@ -1,0 +1,33 @@
+backend:
+  name: github
+  repo: ddinggul/ddinggul.github.io
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+publish_mode: editorial_workflow
+site_url: https://ddinggul.github.io
+display_url: https://ddinggul.github.io
+media_folder: "site/assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "blog_data"
+    label: "Blog"
+    files:
+      - name: "posts"
+        label: "Posts"
+        file: "site/data/posts.json"
+        fields:
+          - label: "Posts"
+            name: "posts"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "ID", name: "id", widget: "string", hint: "URL-safe unique ID, e.g. my-new-post" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Date", name: "date", widget: "date", format: "YYYY-MM-DD" }
+              - { label: "Tags", name: "tags", widget: "list", default: [] }
+              - { label: "Draft", name: "draft", widget: "boolean", default: false, required: false }
+              - { label: "Body", name: "body", widget: "markdown" }
