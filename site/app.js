@@ -32,11 +32,24 @@ const escapeHtml = (value) => value
   .replaceAll('"', '&quot;')
   .replaceAll("'", '&#039;');
 
+// Parses inline markdown: code, bold, italic, links
+const parseInline = (text) => {
+  const codes = [];
+  const s = text.replace(/`([^`]+)`/g, (_, c) => {
+    codes.push(`<code>${escapeHtml(c)}</code>`);
+    return `\x00${codes.length - 1}`;
+  });
+  return escapeHtml(s)
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/\[(.+?)]\((https?:[^)]+|mailto:[^)]+)\)/g, (_, label, url) => `<a href="${url}" rel="noopener noreferrer">${label}</a>`)
+    .replace(/\x00(\d+)/g, (_, i) => codes[+i]);
+};
+
 const markdownToHtml = (markdown) => {
   const blocks = markdown.split(/\n{2,}/);
-  let inList = false;
 
-  const html = blocks.map((block) => {
+  return blocks.map((block) => {
     const text = block.trim();
     if (!text) return '';
 
@@ -45,24 +58,25 @@ const markdownToHtml = (markdown) => {
     }
 
     if (text.startsWith('## ')) {
-      return `<h3>${escapeHtml(text.slice(3))}</h3>`;
+      return `<h3>${parseInline(text.slice(3))}</h3>`;
     }
 
     if (text.startsWith('# ')) {
-      return `<h2>${escapeHtml(text.slice(2))}</h2>`;
+      return `<h2>${parseInline(text.slice(2))}</h2>`;
     }
 
     if (text.split('\n').every((line) => line.startsWith('- '))) {
-      inList = true;
-      const items = text.split('\n').map((line) => `<li>${escapeHtml(line.slice(2))}</li>`).join('');
+      const items = text.split('\n').map((line) => `<li>${parseInline(line.slice(2))}</li>`).join('');
       return `<ul>${items}</ul>`;
     }
 
-    if (inList) inList = false;
-    return `<p>${escapeHtml(text).replaceAll('\n', '<br>')}</p>`;
-  }).join('');
+    if (text.split('\n').every((line) => /^\d+\.\s/.test(line))) {
+      const items = text.split('\n').map((line) => `<li>${parseInline(line.replace(/^\d+\.\s/, ''))}</li>`).join('');
+      return `<ol>${items}</ol>`;
+    }
 
-  return html;
+    return `<p>${parseInline(text).replaceAll('\n', '<br>')}</p>`;
+  }).join('');
 };
 
 const renderTags = () => {
@@ -88,15 +102,35 @@ const getFilteredPosts = () => state.posts
   })
   .sort((a, b) => new Date(b.date) - new Date(a.date));
 
-const openPost = (post) => {
+let skipHashChange = false;
+
+const closePost = (sourceCard) => {
+  elements.postReader.hidden = true;
+  history.replaceState(null, '', location.pathname + location.search);
+  if (sourceCard) sourceCard.focus();
+};
+
+const openPost = (post, sourceCard = null) => {
+  skipHashChange = true;
+  window.location.hash = `post/${post.id}`;
+
   elements.postReader.hidden = false;
   elements.postReader.innerHTML = `
-    <p class="eyebrow">${formatDate(post.date)} · ${(post.tags || []).join(', ')}</p>
+    <button class="post-reader-close" type="button" aria-label="Close post">×</button>
+    <p class="eyebrow">${formatDate(post.date)} · ${(post.tags || []).map((t) => escapeHtml(t)).join(', ')}</p>
     <h2>${escapeHtml(post.title)}</h2>
-    <p>${escapeHtml(post.description)}</p>
+    <p class="post-description">${escapeHtml(post.description)}</p>
     ${markdownToHtml(post.body || '')}
   `;
+
+  elements.postReader.querySelector('.post-reader-close').addEventListener('click', () => closePost(sourceCard));
+  elements.postReader.querySelector('.post-reader-close').focus();
   elements.postReader.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+
+const openPostById = (id) => {
+  const post = state.posts.find((p) => p.id === id && !p.draft);
+  if (post) openPost(post);
 };
 
 const renderPosts = () => {
@@ -114,9 +148,12 @@ const renderPosts = () => {
       <p>${escapeHtml(post.description)}</p>
       <p class="post-tags">${(post.tags || []).map((tag) => `#${escapeHtml(tag)}`).join(' ')}</p>
     `;
-    article.addEventListener('click', () => openPost(post));
+    article.addEventListener('click', () => openPost(post, article));
     article.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter') openPost(post);
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openPost(post, article);
+      }
     });
     elements.postList.append(article);
   });
@@ -124,13 +161,16 @@ const renderPosts = () => {
 
 const loadPosts = async () => {
   try {
-    const response = await fetch('data/posts.json', { cache: 'no-store' });
+    const response = await fetch('data/posts.json');
     const data = await response.json();
     state.posts = data.posts || [];
     renderTags();
     renderPosts();
+    const hash = window.location.hash;
+    if (hash.startsWith('#post/')) openPostById(hash.slice(6));
   } catch (error) {
-    elements.resultCount.textContent = 'Could not load posts.';
+    console.error('Failed to load posts:', error);
+    elements.resultCount.textContent = 'Could not load posts. Try refreshing the page.';
   }
 };
 
@@ -194,6 +234,16 @@ document.addEventListener('keydown', (event) => {
   if (event.ctrlKey && event.altKey && event.key.toLowerCase() === 'a') {
     revealAdminTools();
     showAdminPanel();
+  }
+});
+
+window.addEventListener('hashchange', () => {
+  if (skipHashChange) { skipHashChange = false; return; }
+  const hash = window.location.hash;
+  if (hash.startsWith('#post/')) {
+    openPostById(hash.slice(6));
+  } else {
+    elements.postReader.hidden = true;
   }
 });
 

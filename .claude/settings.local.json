@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"D:\\\\PycharmProjects\\\\ddinggul.github.io\" -Recurse -Force)",
+      "Bash(Select-Object -Property FullName)",
+      "Bash(Get-ChildItem -Path \"D:\\\\PycharmProjects\\\\ddinggul.github.io\" -Recurse -Depth 2)",
+      "Bash(Select-Object FullName, PSIsContainer)",
+      "Bash(Format-Table -AutoSize)",
+      "PowerShell(Get-ChildItem -Path \"D:\\\\PycharmProjects\\\\ddinggul.github.io\" -Recurse -Force -ErrorAction SilentlyContinue | Where-Object { $_.FullName -notmatch 'node_modules|\\\\.git' } | Select-Object -First 200 | ForEach-Object { $_.FullName.Replace\\('D:\\\\PycharmProjects\\\\ddinggul.github.io\\\\', ''\\) } | Sort-Object)",
+      "Bash(grep -E \"\\\\.\\(json|yml|yaml|md\\)$\")",
+      "PowerShell(Get-ChildItem -Path \"D:\\\\PycharmProjects\\\\ddinggul.github.io\" -File | ForEach-Object { $_.Name })"
+    ]
+  }
+}
