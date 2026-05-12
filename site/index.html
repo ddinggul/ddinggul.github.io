@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Junseo Choi's personal website for computational linguistics, phonetics, and AI language learning research." />
-    <title>Junseo Choi | Computational Linguistics & Phonetics</title>
+    <meta name="description" content="Junseo Choi — MA student in English Linguistics researching AI perception of suprasegmentals, L1–L2 speech comparison, and NLP applications for language learning." />
+    <title>Junseo Choi | English Linguistics & AI</title>
     <link rel="icon" href="favicon.svg" />
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -16,6 +16,7 @@
       <nav class="site-nav" id="site-nav">
         <a href="#research">Research</a>
         <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
         <a href="#blog">Blog</a>
         <a href="#contact">Contact</a>
         <button class="icon-button" id="language-toggle" type="button" aria-label="Toggle language">KO</button>
@@ -27,20 +28,20 @@
       <section class="hero">
         <div class="hero-copy">
           <p class="eyebrow">
-            <span data-lang="en">Computational linguistics · phonetics · AI learning tools</span>
-            <span data-lang="ko">전산언어학 · 음성학 · AI 학습 도구</span>
+            <span data-lang="en">Phonetics · Computational Linguistics · AI Learning Tools</span>
+            <span data-lang="ko">음성학 · 전산언어학 · AI 학습 도구</span>
           </p>
           <h1>
-            <span data-lang="en">I study speech, language, and the systems that help people learn them.</span>
-            <span data-lang="ko">말과 언어, 그리고 그것을 배우게 돕는 시스템을 연구합니다.</span>
+            <span data-lang="en">Can AI truly understand the suprasegmentals of human speech?</span>
+            <span data-lang="ko">AI는 인간 발화의 초분절 자질을 진정으로 이해할 수 있을까?</span>
           </h1>
           <p class="hero-text">
-            <span data-lang="en">My work connects prosody, L1-L2 speech comparison, acoustic analysis, and practical language-learning applications.</span>
-            <span data-lang="ko">운율, 모국어-제2언어 음성 비교, 음향 분석, 실제 언어 학습 애플리케이션을 연결합니다.</span>
+            <span data-lang="en">MA student in English Linguistics exploring how AI systems perceive and model prosody, stress, and intonation — the features that carry meaning beyond individual words.</span>
+            <span data-lang="ko">음운론·강세·억양 등 초분절 자질을 AI가 어떻게 인식하고 모델링하는지 연구하는 영어학 석사생입니다.</span>
           </p>
           <div class="hero-actions">
-            <a class="button" href="#blog">Read Blog</a>
-            <a class="button secondary" href="#research">Explore Research</a>
+            <a class="button" href="#projects">View Projects</a>
+            <a class="button secondary" href="#research">Research Interests</a>
           </div>
         </div>
         <div class="speech-board" aria-label="Animated speech signal">
@@ -62,8 +63,8 @@
       <section class="section" id="research">
         <div class="section-heading">
           <p class="eyebrow">
-            <span data-lang="en">Interactive research map</span>
-            <span data-lang="ko">인터랙티브 연구 지도</span>
+            <span data-lang="en">Research interests</span>
+            <span data-lang="ko">연구 관심사</span>
           </p>
           <h2>
             <span data-lang="en">Pick a question to follow the thread.</span>
@@ -72,45 +73,91 @@
         </div>
         <div class="topic-shell">
           <div class="topic-tabs" role="tablist" aria-label="Research topics">
-            <button class="topic-tab active" type="button" data-topic="prosody">Prosody</button>
-            <button class="topic-tab" type="button" data-topic="comparison">L1-L2</button>
-            <button class="topic-tab" type="button" data-topic="tools">AI Tools</button>
+            <button class="topic-tab active" type="button" data-topic="supraseg">Suprasegmentals</button>
+            <button class="topic-tab" type="button" data-topic="comparison">L1–L2</button>
+            <button class="topic-tab" type="button" data-topic="nlp">NLP</button>
           </div>
-          <article class="topic-panel active" data-topic-panel="prosody">
-            <h3>How does speech carry meaning beyond words?</h3>
-            <p>Prosody shapes emphasis, grouping, affect, and stance. I am interested in making these patterns measurable without losing their linguistic nuance.</p>
+          <article class="topic-panel active" data-topic-panel="supraseg">
+            <h3>Can AI perceive the melody and rhythm of human speech?</h3>
+            <p>Suprasegmental features — prosody, stress, and intonation — carry meaning that transcends individual phonemes. I am interested in whether and how AI systems can learn to recognise these patterns the way human listeners do.</p>
           </article>
           <article class="topic-panel" data-topic-panel="comparison">
-            <h3>Where does second-language speech converge or diverge?</h3>
-            <p>L1-L2 comparison can reveal subtle differences in timing, pitch movement, and stress. These differences are useful for both theory and learner feedback.</p>
+            <h3>Where do native and non-native speech patterns diverge?</h3>
+            <p>L1–L2 contrastive analysis using mel-spectrograms and TextGrid-based alignment reveals fine-grained prosodic differences. Contrastive learning approaches help surface what distinguishes learner speech from native norms.</p>
           </article>
-          <article class="topic-panel" data-topic-panel="tools">
-            <h3>What should language-learning AI actually help with?</h3>
-            <p>I care about feedback that is contextual, specific, and usable: not just scores, but explanations that help learners notice patterns.</p>
+          <article class="topic-panel" data-topic-panel="nlp">
+            <h3>How can language models support real language learning?</h3>
+            <p>From fine-tuned grammar correction pipelines to Vogler-structured narrative modelling and vocabulary systems grounded in Suggestopedia, I explore practical NLP applications that go beyond benchmark scores.</p>
           </article>
         </div>
       </section>
 
       <section class="section muted" id="projects">
         <div class="section-heading">
-          <p class="eyebrow">Selected Work</p>
-          <h2>Research and development interests</h2>
+          <p class="eyebrow">
+            <span data-lang="en">Current projects</span>
+            <span data-lang="ko">진행 중인 프로젝트</span>
+          </p>
+          <h2>
+            <span data-lang="en">Research and development work</span>
+            <span data-lang="ko">연구 및 개발 작업</span>
+          </h2>
         </div>
         <div class="cards">
           <article class="card">
-            <span class="card-tag">Research</span>
-            <h3>Computational speech analysis</h3>
-            <p>Acoustic and prosodic analysis for speech datasets, with attention to interpretable measurements.</p>
+            <span class="card-tag">Speech</span>
+            <h3>Prosody Analysis with Contrastive Learning</h3>
+            <p>Comparative analysis of L1 and L2 speech using mel-spectrograms, TextGrid-based alignment, and contrastive learning approaches.</p>
+          </article>
+          <article class="card">
+            <span class="card-tag">NLP</span>
+            <h3>Grammar Correction and Sentence Evaluation</h3>
+            <p>Sentence correction and evaluation pipeline using T5 fine-tuning and learner language data.</p>
+          </article>
+          <article class="card">
+            <span class="card-tag">LLM</span>
+            <h3>LLM-based Narrative Structure Modeling</h3>
+            <p>Scenario summarization based on Vogler's 12-stage narrative structure using GPT-based models.</p>
           </article>
           <article class="card">
             <span class="card-tag">Application</span>
-            <h3>Adaptive vocabulary learning</h3>
-            <p>AI-assisted language practice that adapts to learner progress and produces useful feedback.</p>
+            <h3>AI Vocabulary Learning System</h3>
+            <p>English vocabulary learning system inspired by Suggestopedia, with a Flask backend and iOS-based MVP structure.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="section-heading">
+          <p class="eyebrow">
+            <span data-lang="en">Technical skills</span>
+            <span data-lang="ko">기술 스택</span>
+          </p>
+          <h2>
+            <span data-lang="en">Tools and technologies</span>
+            <span data-lang="ko">사용 도구 및 기술</span>
+          </h2>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <span class="card-tag">Programming</span>
+            <p>Python · SQL · Markdown</p>
           </article>
           <article class="card">
-            <span class="card-tag">Writing</span>
-            <h3>Research notes</h3>
-            <p>Short posts about phonetics, language technology, and the process of building learning tools.</p>
+            <span class="card-tag">Machine Learning</span>
+            <p>PyTorch · Transformers</p>
+          </article>
+          <article class="card">
+            <span class="card-tag">Speech Processing</span>
+            <p>Praat · TextGrid · librosa · torchaudio</p>
+          </article>
+          <article class="card">
+            <span class="card-tag">Backend</span>
+            <p>Flask · FastAPI</p>
+          </article>
+          <article class="card">
+            <span class="card-tag">Tools</span>
+            <p>Git · GitHub · Jupyter · VS Code</p>
           </article>
         </div>
       </section>
@@ -143,7 +190,10 @@
       <section class="section muted contact-section" id="contact">
         <div>
           <p class="eyebrow">Contact</p>
-          <h2>Let us talk about language, speech, or learning tools.</h2>
+          <h2>
+            <span data-lang="en">Let us talk about language, speech, or AI.</span>
+            <span data-lang="ko">언어, 말소리, AI에 대해 이야기해요.</span>
+          </h2>
         </div>
         <div class="contact-links">
           <a href="mailto:litterrariuschwy@gmail.com">Email</a>
