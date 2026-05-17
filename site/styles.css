@@ -324,6 +324,64 @@ h3 {
   font-size: 1.35rem;
 }
 
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: start;
+}
+
+.about-bio {
+  margin: 0;
+  font-size: 1.12rem;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.about-blocks {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.about-block {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  padding: 1rem 1.2rem;
+}
+
+.about-label {
+  display: block;
+  color: var(--warm);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.about-block p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.about-block small {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.about-edu-sub {
+  margin: 0.75rem 0 0;
+  font-weight: 600;
+}
+
+.card-stack {
+  margin: 0.6rem 0 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-family: "SF Mono", "Fira Code", ui-monospace, monospace;
+}
+
 .muted {
   max-width: none;
   background: var(--surface);
@@ -559,6 +617,165 @@ h3 {
   padding-bottom: 2rem;
 }
 
+/* ── CV page ── */
+
+.cv-hero {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 6rem) clamp(1rem, 4vw, 3rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.cv-photo-wrap {
+  width: clamp(160px, 22vw, 260px);
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--line);
+  background: var(--surface);
+  flex-shrink: 0;
+}
+
+.cv-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 15%;
+  display: block;
+}
+
+.cv-identity h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  margin-bottom: 0.4rem;
+  line-height: 1.1;
+}
+
+.cv-name-ko {
+  font-size: 0.6em;
+  color: var(--muted);
+  font-weight: 600;
+  margin-left: 0.4rem;
+}
+
+.cv-title {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin: 0 0 0.25rem;
+}
+
+.cv-affil {
+  color: var(--accent);
+  font-weight: 700;
+  margin: 0 0 1.2rem;
+  font-size: 0.95rem;
+}
+
+.cv-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.cv-links a {
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cv-links a:hover {
+  color: var(--accent);
+}
+
+.cv-timeline {
+  display: grid;
+  gap: 0;
+}
+
+.cv-entry {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 0 2rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.cv-entry:last-child {
+  border-bottom: none;
+}
+
+.cv-entry-year {
+  color: var(--warm);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  padding-top: 0.25rem;
+  text-transform: uppercase;
+}
+
+.cv-entry-body h3 {
+  margin: 0 0 0.2rem;
+  font-size: 1.1rem;
+}
+
+.cv-inst {
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin: 0 0 0.5rem;
+}
+
+.cv-desc {
+  color: var(--muted);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.cv-placeholder {
+  color: var(--muted);
+  font-style: italic;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin: 0;
+}
+
+[aria-current="page"] {
+  color: var(--accent) !important;
+  border-color: var(--line) !important;
+  background: var(--surface) !important;
+}
+
+@media (max-width: 600px) {
+  .cv-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .cv-photo-wrap {
+    margin: 0 auto;
+    width: 140px;
+    border-radius: 10px;
+  }
+
+  .cv-links {
+    justify-content: center;
+  }
+
+  .cv-entry {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .cv-entry-year {
+    padding-top: 0;
+  }
+}
+
 @keyframes wave-one {
   0%, 100% { transform: rotate(-7deg) scaleX(0.78); }
   50% { transform: rotate(4deg) scaleX(1); }
@@ -606,6 +823,10 @@ h3 {
 
   .speech-board {
     min-height: 320px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
   }
 
   .section-heading.with-action,
