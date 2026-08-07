@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Junseo Choi — MA student in English Linguistics asking whether AI can hear what makes speech human." />
+    <title>Junseo Choi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet" />
+    <link rel="icon" href="favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#home">Skip to main content</a>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Junseo Choi home">Junseo Choi</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav">
+        <a href="about.html">Profile</a>
+        <a href="#research">Thinking</a>
+        <a href="#projects">Work</a>
+        <a href="#skills">Stack</a>
+        <a href="#blog">Writing</a>
+        <a href="#contact">Contact</a>
+        <button class="icon-button" id="language-toggle" type="button" aria-label="Toggle language">KO</button>
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle theme">Dark</button>
+      </nav>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span data-lang="en">MA Candidate · English Linguistics · Seoul</span>
+            <span data-lang="ko">석사생 · 영어학 · 서울</span>
+          </p>
+          <h1>
+            <span data-lang="en">I want to know if AI can hear what makes speech human.</span>
+            <span data-lang="ko">AI가 인간의 말을 이해할 수 있는지 알고 싶습니다.</span>
+          </h1>
+          <p class="hero-text">
+            <span data-lang="en">I'm Junseo. I study the suprasegmental features of speech — prosody, stress, intonation — and whether AI can perceive them the way humans do. That's the question I keep coming back to.</span>
+            <span data-lang="ko">저는 최준서입니다. 운율, 강세, 억양 같은 말소리의 초분절 자질을 연구하며, AI가 이것들을 인간처럼 인식할 수 있을지에 대해 공부를 하고 있습니다.</span>
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#projects">
+              <span data-lang="en">See my work</span>
+              <span data-lang="ko">작업물 보기</span>
+            </a>
+            <a class="button secondary" href="#research">
+              <span data-lang="en">What I think about</span>
+              <span data-lang="ko">연구 관심사</span>
+            </a>
+          </div>
+        </div>
+        <div class="speech-board" aria-label="Animated speech signal">
+          <div class="signal-grid"></div>
+          <div class="wave wave-one"></div>
+          <div class="wave wave-two"></div>
+          <div class="scan-dot"></div>
+          <div class="signal-card">
+            <span>F0</span>
+            <strong>212 Hz</strong>
+          </div>
+          <div class="signal-card lower">
+            <span>Rhythm</span>
+            <strong>0.74</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about-section">
+        <div class="about-layout">
+          <div class="profile-photo-wrap">
+            <!-- 사진 추가 시 아래 주석을 해제하고 span을 지우세요 -->
+            <!-- <img src="photo.jpg" alt="Junseo Choi" /> -->
+            <span class="profile-initials">JC</span>
+          </div>
+          <div class="about-copy">
+            <p class="eyebrow">
+              <span data-lang="en">About</span>
+              <span data-lang="ko">소개</span>
+            </p>
+            <p class="about-bio">
+              <span data-lang="en">I'm a master's candidate in English Linguistics, working at the intersection of phonetics, computational linguistics, and AI. My research asks what machines can and can't perceive about the suprasegmental features of human speech.</span>
+              <span data-lang="ko">영어학 석사과정에 재학 중이며, 음성학·전산언어학·AI의 교차점에서 연구하고 있습니다. AI가 인간 말소리의 초분절 자질을 어디까지 인식할 수 있는지 탐구합니다.</span>
+            </p>
+            <a class="button secondary" href="about.html">
+              <span data-lang="en">Full profile →</span>
+              <span data-lang="ko">전체 프로필 →</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="research">
+        <div class="section-heading">
+          <p class="eyebrow">
+            <span data-lang="en">On my mind</span>
+            <span data-lang="ko">연구 분야</span>
+          </p>
+          <h2>
+            <span data-lang="en">Three threads I keep pulling.</span>
+            <span data-lang="ko">주요 관심사</span>
+          </h2>
+        </div>
+        <div class="topic-shell">
+          <div class="topic-tabs" role="tablist" aria-label="Research topics">
+            <button class="topic-tab active" type="button" data-topic="supraseg">Suprasegmentals</button>
+            <button class="topic-tab" type="button" data-topic="comparison">L1–L2</button>
+            <button class="topic-tab" type="button" data-topic="nlp">NLP</button>
+          </div>
+          <article class="topic-panel active" data-topic-panel="supraseg">
+            <h3>Can AI perceive the melody of speech?</h3>
+            <p>Prosody, stress, intonation — these are the features that make the same words mean completely different things. I want to know whether AI systems can learn to hear them the way a human listener does, not just pattern-match on waveforms.</p>
+          </article>
+          <article class="topic-panel" data-topic-panel="comparison">
+            <h3>What separates native from learner speech?</h3>
+            <p>The gap between L1 and L2 speakers lives largely in the suprasegmentals — the rhythm, the melody, the weight of syllables. I use mel-spectrograms, TextGrid alignment, and contrastive learning to make those differences visible.</p>
+          </article>
+          <article class="topic-panel" data-topic-panel="nlp">
+            <h3>What should AI actually do for language learners?</h3>
+            <p>Not just score them. I'm building pipelines for grammar correction and narrative modelling, and thinking about vocabulary systems that respect how people actually learn — not just how benchmark datasets are structured.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section muted" id="projects">
+        <div class="section-heading">
+          <p class="eyebrow">
+            <span data-lang="en">Things I've made</span>
+            <span data-lang="ko">작업물</span>
+          </p>
+          <h2>
+            <span data-lang="en">Ongoing work.</span>
+            <span data-lang="ko">현재 진행 중</span>
+          </h2>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <span class="card-tag">Speech</span>
+            <h3>Prosody Analysis with Contrastive Learning</h3>
+            <p>Comparative analysis of L1 and L2 speech using mel-spectrograms, TextGrid-based alignment, and contrastive learning approaches.</p>
+          </article>
+          <article class="card">
+            <span class="card-tag">NLP</span>
+            <h3>Grammar Correction and Sentence Evaluation</h3>
+            <p>Sentence correction and evaluation pipeline using T5 fine-tuning and learner language data.</p>
+          </article>
+          <article class="card">
+            <span class="card-tag">LLM</span>
+            <h3>LLM-based Narrative Structure Modeling</h3>
+            <p>Scenario summarization based on Vogler's 12-stage narrative structure using GPT-based models.</p>
+          </article>
+          <article class="card">
+            <span class="card-tag">App</span>
+            <h3>AI Vocabulary Learning System</h3>
+            <p>An English vocabulary system inspired by Suggestopedia — Flask backend, iOS-based MVP, designed around how acquisition actually works.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="section-heading">
+          <p class="eyebrow">
+            <span data-lang="en">What I reach for</span>
+            <span data-lang="ko">주로 사용하는 툴</span>
+          </p>
+          <h2>
+            <span data-lang="en">The toolkit.</span>
+            <span data-lang="ko">사용 가능한 툴</span>
+          </h2>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <span class="card-tag">Programming</span>
+            <p>Python · SQL · Markdown</p>
+          </article>
+          <article class="card">
+            <span class="card-tag">Machine Learning</span>
+            <p>PyTorch · Transformers</p>
+          </article>
+          <article class="card">
+            <span class="card-tag">Speech Processing</span>
+            <p>Praat · TextGrid · librosa · torchaudio</p>
+          </article>
+          <article class="card">
+            <span class="card-tag">Backend</span>
+            <p>Flask · FastAPI</p>
+          </article>
+          <article class="card">
+            <span class="card-tag">Tools</span>
+            <p>Git · GitHub · Jupyter · VS Code</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="blog">
+        <div class="section-heading with-action">
+          <div>
+            <p class="eyebrow">
+              <span data-lang="en">Writing</span>
+              <span data-lang="ko">글쓰기</span>
+            </p>
+            <h2>
+              <span data-lang="en">Notes from the work.</span>
+              <span data-lang="ko">작업 노트.</span>
+            </h2>
+          </div>
+          <button class="admin-trigger" type="button">Author tools</button>
+        </div>
+        <div class="blog-controls">
+          <label>
+            <span data-lang="en">Search</span>
+            <span data-lang="ko">검색</span>
+            <input id="post-search" type="search" placeholder="Title, description, or tag" />
+          </label>
+          <label>
+            <span data-lang="en">Tag</span>
+            <span data-lang="ko">태그</span>
+            <select id="tag-filter">
+              <option value="all">All tags</option>
+            </select>
+          </label>
+        </div>
+        <p class="result-count" id="result-count"></p>
+        <div class="post-list" id="post-list"></div>
+        <article class="post-reader" id="post-reader" hidden></article>
+      </section>
+
+      <section class="section muted contact-section" id="contact">
+        <div>
+          <p class="eyebrow">
+            <span data-lang="en">Get in touch</span>
+            <span data-lang="ko">연락</span>
+          </p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:litterrariuschwy@gmail.com">Email</a>
+          <a href="https://github.com/ddinggul">GitHub</a>
+          <a href="https://www.instagram.com/2dinggul_myroom">Instagram</a>
+        </div>
+      </section>
+    </main>
+
+    <aside class="admin-panel" id="admin-panel" aria-live="polite">
+      <button class="admin-close" type="button" aria-label="Close author tools">×</button>
+      <p class="eyebrow">Author mode</p>
+      <h2>Write and edit posts</h2>
+      <p>Editing is handled by Decap CMS and protected by your GitHub repository permissions. Visitors can see this button only after you reveal it, but publishing still requires authorized GitHub access.</p>
+      <a class="button" href="admin/">Open CMS</a>
+    </aside>
+
+    <footer class="site-footer">
+      <span>© <span id="year"></span> Junseo Choi</span>
+      <span>Static HTML · CSS · JavaScript</span>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

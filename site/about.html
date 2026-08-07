@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Profile — Junseo Choi, MA Candidate in English Linguistics." />
+    <title>Profile — Junseo Choi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet" />
+    <link rel="icon" href="favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#profile">Skip to main content</a>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Junseo Choi home">Junseo Choi</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="site-nav" id="site-nav">
+        <a href="about.html" aria-current="page">Profile</a>
+        <a href="index.html#research">Thinking</a>
+        <a href="index.html#projects">Work</a>
+        <a href="index.html#skills">Stack</a>
+        <a href="index.html#blog">Writing</a>
+        <a href="index.html#contact">Contact</a>
+        <button class="icon-button" id="language-toggle" type="button" aria-label="Toggle language">KO</button>
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle theme">Dark</button>
+      </nav>
+    </header>
+
+    <main id="profile">
+
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span data-lang="en">MA Candidate · English Linguistics · Seoul</span>
+            <span data-lang="ko">석사생 · 영어학 · 서울</span>
+          </p>
+          <h1>
+            <span data-lang="en">Junseo Choi</span>
+            <span data-lang="ko">최준서</span>
+          </h1>
+          <p class="hero-text">
+            <span data-lang="en">I study what AI can and can't perceive about the suprasegmental features of human speech — prosody, stress, intonation. Currently researching at the intersection of English linguistics, phonetics, and machine learning.</span>
+            <span data-lang="ko">AI가 인간 말소리의 초분절 자질(운율·강세·억양)을 어디까지 인식할 수 있는지 연구합니다. 영어학·음성학·머신러닝의 교차점에서 공부하고 있습니다.</span>
+          </p>
+        </div>
+        <div class="profile-photo-wrap profile-hero-photo">
+          <!-- 사진 추가 시 아래 주석을 해제하고 span을 지우세요 -->
+          <!-- <img src="photo.jpg" alt="Junseo Choi" /> -->
+          <span class="profile-initials">JC</span>
+        </div>
+      </section>
+
+      <section class="section muted" id="education">
+        <div class="section-heading">
+          <p class="eyebrow">
+            <span data-lang="en">Education</span>
+            <span data-lang="ko">학력</span>
+          </p>
+          <h2>
+            <span data-lang="en">Academic background</span>
+            <span data-lang="ko">학업 배경</span>
+          </h2>
+        </div>
+        <div class="profile-timeline">
+          <article class="timeline-item">
+            <span class="card-tag">
+              <span data-lang="en">Current</span>
+              <span data-lang="ko">재학 중</span>
+            </span>
+            <h3>
+              <span data-lang="en">MA in English Linguistics</span>
+              <span data-lang="ko">영어학 석사 재학</span>
+            </h3>
+            <p class="timeline-meta">[대학교 이름]</p>
+          </article>
+          <article class="timeline-item">
+            <span class="card-tag">BA</span>
+            <h3>
+              <span data-lang="en">BA in English Linguistics / AI</span>
+              <span data-lang="ko">영어학 / AI 학부 졸업</span>
+            </h3>
+            <p class="timeline-meta">[대학교 이름]</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="research-detail">
+        <div class="section-heading">
+          <p class="eyebrow">
+            <span data-lang="en">Research</span>
+            <span data-lang="ko">연구 분야</span>
+          </p>
+          <h2>
+            <span data-lang="en">What I study</span>
+            <span data-lang="ko">주요 관심사</span>
+          </h2>
+        </div>
+        <div class="profile-research">
+          <article class="profile-research-item">
+            <h3>
+              <span data-lang="en">Suprasegmentals & AI Perception</span>
+              <span data-lang="ko">초분절음과 AI 인식</span>
+            </h3>
+            <p>
+              <span data-lang="en">My central question: can AI systems perceive the melody and rhythm of speech the way humans do? Prosody, stress, and intonation carry communicative meaning that goes well beyond individual phonemes. I investigate whether machine learning models can learn to represent these features in linguistically meaningful ways.</span>
+              <span data-lang="ko">AI 시스템이 인간처럼 말소리의 선율과 리듬을 인식할 수 있는지가 핵심 연구 질문입니다. 운율, 강세, 억양은 개별 음소를 넘어서는 의미를 담고 있으며, 머신러닝 모델이 이러한 자질을 언어학적으로 의미 있는 방식으로 학습할 수 있는지를 탐구합니다.</span>
+            </p>
+          </article>
+          <article class="profile-research-item">
+            <h3>
+              <span data-lang="en">L1–L2 Speech Comparison</span>
+              <span data-lang="ko">모국어-제2언어 음성 비교</span>
+            </h3>
+            <p>
+              <span data-lang="en">Native and non-native speakers diverge most clearly in their suprasegmental patterns. I use mel-spectrogram analysis and TextGrid-based alignment to measure these differences, applying contrastive learning approaches to surface fine-grained prosodic distinctions.</span>
+              <span data-lang="ko">모국어 화자와 비모국어 화자의 차이는 초분절 패턴에서 가장 명확하게 드러납니다. 멜 스펙트로그램 분석과 TextGrid 기반 정렬을 활용하여 이 차이를 측정하고, 대조 학습으로 미세한 운율적 구분을 계산적으로 다룹니다.</span>
+            </p>
+          </article>
+          <article class="profile-research-item">
+            <h3>
+              <span data-lang="en">NLP for Language Learning</span>
+              <span data-lang="ko">언어 학습을 위한 NLP</span>
+            </h3>
+            <p>
+              <span data-lang="en">I build practical NLP systems for language learners: a T5-based grammar correction and evaluation pipeline, a GPT-based narrative structure modelling system informed by Vogler's 12 stages, and a Suggestopedia-inspired vocabulary learning application. The goal is always utility — systems that actually help people learn.</span>
+              <span data-lang="ko">언어 학습자를 위한 실용적인 NLP 시스템을 개발합니다. T5 기반 문법 교정 파이프라인, Vogler의 12단계 기반 GPT 서사 모델링 시스템, 수제스토페디아에서 영감을 받은 어휘 학습 앱이 포함됩니다.</span>
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section muted" id="projects-detail">
+        <div class="section-heading">
+          <p class="eyebrow">
+            <span data-lang="en">Projects</span>
+            <span data-lang="ko">작업물</span>
+          </p>
+          <h2>
+            <span data-lang="en">Current work</span>
+            <span data-lang="ko">현재 진행 중</span>
+          </h2>
+        </div>
+        <div class="profile-projects">
+          <article class="profile-project">
+            <span class="card-tag">Speech</span>
+            <h3>Prosody Analysis with Contrastive Learning</h3>
+            <p>
+              <span data-lang="en">Comparative analysis of L1 and L2 speech using mel-spectrograms, TextGrid-based forced alignment, and contrastive learning to surface prosodic differences between native and learner speech.</span>
+              <span data-lang="ko">멜 스펙트로그램, TextGrid 기반 강제 정렬, 대조 학습을 활용하여 모국어와 학습자 발화 간의 운율적 차이를 분석합니다.</span>
+            </p>
+          </article>
+          <article class="profile-project">
+            <span class="card-tag">NLP</span>
+            <h3>Grammar Correction and Sentence Evaluation</h3>
+            <p>
+              <span data-lang="en">An end-to-end sentence correction and evaluation pipeline fine-tuned on T5, trained on learner language data to provide contextual grammatical feedback.</span>
+              <span data-lang="ko">학습자 언어 데이터로 파인튜닝한 T5 기반 문장 교정 및 평가 파이프라인. 문맥에 맞는 문법 피드백을 제공합니다.</span>
+            </p>
+          </article>
+          <article class="profile-project">
+            <span class="card-tag">LLM</span>
+            <h3>LLM-based Narrative Structure Modeling</h3>
+            <p>
+              <span data-lang="en">Scenario summarization using GPT-based models structured around Vogler's 12-stage hero's journey, exploring how large language models represent narrative progression.</span>
+              <span data-lang="ko">Vogler의 영웅 여정 12단계를 기반으로 GPT 모델을 활용한 시나리오 요약 연구. 대형 언어 모델의 서사 표현 방식을 탐구합니다.</span>
+            </p>
+          </article>
+          <article class="profile-project">
+            <span class="card-tag">App</span>
+            <h3>AI Vocabulary Learning System</h3>
+            <p>
+              <span data-lang="en">An English vocabulary system inspired by Suggestopedia — Flask backend, iOS-based MVP, built around acquisition principles rather than rote repetition.</span>
+              <span data-lang="ko">수제스토페디아에서 영감을 받은 영어 어휘 학습 시스템. Flask 백엔드와 iOS 기반 MVP 구조로, 단순 반복이 아닌 습득 원리에 기반하여 설계했습니다.</span>
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="academic-activity">
+        <div class="section-heading">
+          <p class="eyebrow">
+            <span data-lang="en">Academic activity</span>
+            <span data-lang="ko">학술 활동</span>
+          </p>
+          <h2>
+            <span data-lang="en">Presentations · Papers · Awards</span>
+            <span data-lang="ko">발표 · 논문 · 수상</span>
+          </h2>
+        </div>
+        <div class="profile-timeline">
+          <article class="timeline-item">
+            <p class="timeline-placeholder">
+              <span data-lang="en">To be updated.</span>
+              <span data-lang="ko">추후 업데이트 예정입니다.</span>
+            </p>
+          </article>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span id="year"></span> Junseo Choi</span>
+      <span><a href="index.html" style="color:inherit;text-decoration:none;">← Back to main</a></span>
+    </footer>
+
+    <script src="about.js"></script>
+  </body>
+</html>
