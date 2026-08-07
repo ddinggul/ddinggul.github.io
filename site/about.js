@@ -1,4 +1,5 @@
-document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+document.documentElement.dataset.theme = localStorage.getItem('theme') || systemTheme;
 document.documentElement.dataset.language = localStorage.getItem('language') || 'en';
 
 const themeToggle = document.querySelector('#theme-toggle');
@@ -10,14 +11,14 @@ themeToggle?.addEventListener('click', () => {
   const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
   document.documentElement.dataset.theme = next;
   localStorage.setItem('theme', next);
-  themeToggle.textContent = next === 'dark' ? 'Light' : 'Dark';
+  themeToggle.textContent = next === 'dark' ? 'light' : 'dark';
 });
 
 languageToggle?.addEventListener('click', () => {
   const next = document.documentElement.dataset.language === 'ko' ? 'en' : 'ko';
   document.documentElement.dataset.language = next;
   localStorage.setItem('language', next);
-  languageToggle.textContent = next === 'ko' ? 'EN' : 'KO';
+  languageToggle.textContent = next === 'ko' ? 'en' : 'ko';
 });
 
 menuButton?.addEventListener('click', () => {
@@ -25,7 +26,7 @@ menuButton?.addEventListener('click', () => {
   menuButton.setAttribute('aria-expanded', String(isOpen));
 });
 
-if (themeToggle) themeToggle.textContent = document.documentElement.dataset.theme === 'dark' ? 'Light' : 'Dark';
-if (languageToggle) languageToggle.textContent = document.documentElement.dataset.language === 'ko' ? 'EN' : 'KO';
+if (themeToggle) themeToggle.textContent = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+if (languageToggle) languageToggle.textContent = document.documentElement.dataset.language === 'ko' ? 'en' : 'ko';
 const yearEl = document.querySelector('#year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();

@@ -185,21 +185,22 @@ const revealAdminTools = () => {
   localStorage.setItem('authorToolsVisible', 'true');
 };
 
-document.documentElement.dataset.theme = localStorage.getItem('theme') || 'light';
+const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+document.documentElement.dataset.theme = localStorage.getItem('theme') || systemTheme;
 document.documentElement.dataset.language = localStorage.getItem('language') || 'en';
 
 elements.themeToggle.addEventListener('click', () => {
   const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
   document.documentElement.dataset.theme = next;
   localStorage.setItem('theme', next);
-  elements.themeToggle.textContent = next === 'dark' ? 'Light' : 'Dark';
+  elements.themeToggle.textContent = next === 'dark' ? 'light' : 'dark';
 });
 
 elements.languageToggle.addEventListener('click', () => {
   const next = document.documentElement.dataset.language === 'ko' ? 'en' : 'ko';
   document.documentElement.dataset.language = next;
   localStorage.setItem('language', next);
-  elements.languageToggle.textContent = next === 'ko' ? 'EN' : 'KO';
+  elements.languageToggle.textContent = next === 'ko' ? 'en' : 'ko';
 });
 
 elements.menuButton.addEventListener('click', () => {
@@ -251,7 +252,7 @@ if (new URLSearchParams(window.location.search).get('admin') === '1' || localSto
   revealAdminTools();
 }
 
-elements.themeToggle.textContent = document.documentElement.dataset.theme === 'dark' ? 'Light' : 'Dark';
-elements.languageToggle.textContent = document.documentElement.dataset.language === 'ko' ? 'EN' : 'KO';
+elements.themeToggle.textContent = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+elements.languageToggle.textContent = document.documentElement.dataset.language === 'ko' ? 'en' : 'ko';
 document.querySelector('#year').textContent = new Date().getFullYear();
 loadPosts();
