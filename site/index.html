@@ -8,7 +8,8 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet" />
 
   <link rel="icon" href="favicon.svg" />
   <link rel="stylesheet" href="styles.css" />
@@ -30,10 +31,9 @@
     <a href="#research">research</a>
     <a href="#projects">projects</a>
     <a href="#skills">skills</a>
-    <a href="#blog">writing</a>
     <a href="#contact">contact</a>
     <button class="icon-button" id="language-toggle" type="button" aria-label="Toggle language">ko</button>
-    <button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle theme">dark</button>
+    <button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle theme">🌙</button>
   </nav>
 </header>
 
@@ -295,37 +295,6 @@
     </div>
   </section>
 
-  <!-- ── WRITING ── -->
-  <section class="section" id="blog">
-    <div class="section-head with-action">
-      <p class="tier-label">writing</p>
-      <h2>
-        <span data-lang="en">Notes</span>
-        <span data-lang="ko">연구와 개발 기록</span>
-      </h2>
-      <button class="admin-trigger" type="button">author tools</button>
-    </div>
-
-    <div class="blog-controls">
-      <label>
-        <span data-lang="en">search</span>
-        <span data-lang="ko">검색</span>
-        <input id="post-search" type="search" placeholder="Title, description, or tag" />
-      </label>
-      <label>
-        <span data-lang="en">tag</span>
-        <span data-lang="ko">태그</span>
-        <select id="tag-filter">
-          <option value="all">All tags</option>
-        </select>
-      </label>
-    </div>
-
-    <p class="result-count" id="result-count"></p>
-    <div class="post-list" id="post-list"></div>
-    <article class="post-reader" id="post-reader" hidden></article>
-  </section>
-
   <!-- ── CONTACT ── -->
   <section class="section contact-section" id="contact">
     <div class="section-head">
@@ -345,15 +314,6 @@
   </section>
 
 </main>
-
-<!-- ── ADMIN PANEL ── -->
-<aside class="admin-panel" id="admin-panel" aria-live="polite">
-  <button class="admin-close" type="button" aria-label="Close author tools">×</button>
-  <p class="tier-label">author mode</p>
-  <h2>Write and edit posts</h2>
-  <p>Editing is handled by Decap CMS and protected by your GitHub repository permissions. Publishing requires authorized GitHub access.</p>
-  <a class="button" href="admin/">Open CMS</a>
-</aside>
 
 <!-- ── FOOTER ── -->
 <footer class="site-footer">

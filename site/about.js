@@ -11,7 +11,7 @@ themeToggle?.addEventListener('click', () => {
   const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
   document.documentElement.dataset.theme = next;
   localStorage.setItem('theme', next);
-  themeToggle.textContent = next === 'dark' ? 'light' : 'dark';
+  themeToggle.textContent = next === 'dark' ? '☀️' : '🌙';
 });
 
 languageToggle?.addEventListener('click', () => {
@@ -26,7 +26,7 @@ menuButton?.addEventListener('click', () => {
   menuButton.setAttribute('aria-expanded', String(isOpen));
 });
 
-if (themeToggle) themeToggle.textContent = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+if (themeToggle) themeToggle.textContent = document.documentElement.dataset.theme === 'dark' ? '☀️' : '🌙';
 if (languageToggle) languageToggle.textContent = document.documentElement.dataset.language === 'ko' ? 'en' : 'ko';
 const yearEl = document.querySelector('#year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
