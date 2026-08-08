@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Technical skills of Junseo Choi — Python, PyTorch, Praat, speech processing, and backend development." />
+  <title>Skills — Junseo Choi</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet" />
+
+  <link rel="icon" href="favicon.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<a class="skip-link" href="#skills">Skip to main content</a>
+
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="Junseo Choi home">
+    Junseo Choi <span class="brand-ipa" aria-hidden="true">/tɕun.sʌ tɕʰwe/</span>
+  </a>
+
+  <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
+    menu
+  </button>
+
+  <nav class="site-nav" id="site-nav">
+    <a href="index.html">About</a>
+    <a href="research.html">Research</a>
+    <a href="projects.html">Projects</a>
+    <a href="skills.html" aria-current="page">Skills</a>
+    <a href="contact.html">Contact</a>
+    <div class="nav-controls">
+      <button class="icon-button" id="language-toggle" type="button" aria-label="Toggle language">Eng</button>
+      <button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle theme">🌙</button>
+    </div>
+  </nav>
+</header>
+
+<main id="skills">
+
+  <!-- ── PAGE HERO ── -->
+  <section class="hero page-hero">
+    <p class="eyebrow">linguistics → speech → ai → <em>data → software</em></p>
+    <h1>
+      <span data-lang="en">Technical <span class="tone" data-tone="H-">skills</span></span>
+      <span data-lang="ko">기술 <span class="tone" data-tone="H-">스택</span></span>
+    </h1>
+    <p class="hero-text">
+      <span data-lang="en">The tools I use to record, annotate, model, and ship speech research — laid out tier by tier, like a TextGrid.</span>
+      <span data-lang="ko">말소리를 녹음하고, 주석을 달고, 모델링하고, 소프트웨어로 구현하는 데 쓰는 도구들입니다. TextGrid처럼 층위별로 정리했습니다.</span>
+    </p>
+  </section>
+
+  <!-- ── SKILL TIERS ── -->
+  <section class="section">
+    <div class="textgrid">
+      <div class="tg-row">
+        <span class="tg-tier">programming</span>
+        <div class="tg-intervals">
+          <span>Python</span>
+          <span>SQL</span>
+          <span>Markdown</span>
+          <span>MATLAB</span>
+          <span>Java</span>
+        </div>
+      </div>
+
+      <div class="tg-row">
+        <span class="tg-tier">ML/DL</span>
+        <div class="tg-intervals">
+          <span>PyTorch</span>
+          <span>Transformers</span>
+        </div>
+      </div>
+
+      <div class="tg-row">
+        <span class="tg-tier">speech</span>
+        <div class="tg-intervals">
+          <span>Praat</span>
+          <span>TextGrid</span>
+          <span>librosa</span>
+          <span>torchaudio</span>
+        </div>
+      </div>
+
+      <div class="tg-row">
+        <span class="tg-tier">backend</span>
+        <div class="tg-intervals">
+          <span>Flask</span>
+          <span>FastAPI</span>
+          <span>Spring</span>
+        </div>
+      </div>
+
+      <div class="tg-row">
+        <span class="tg-tier">tools</span>
+        <div class="tg-intervals">
+          <span>Git</span>
+          <span>GitHub</span>
+          <span>IntelliJ</span>
+          <span>PyCharm</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── NEXT ── -->
+  <section class="section page-next">
+    <a class="text-link" href="contact.html">
+      <span data-lang="en">next · contact →</span>
+      <span data-lang="ko">다음 · 연락처 →</span>
+    </a>
+  </section>
+
+</main>
+
+<!-- ── FOOTER ── -->
+<footer class="site-footer">
+  <span>© <span id="year"></span> Junseo Choi</span>
+  <span>html · css · js</span>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

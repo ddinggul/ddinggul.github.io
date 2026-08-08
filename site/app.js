@@ -7,9 +7,10 @@ const elements = {
 
 const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 document.documentElement.dataset.theme = localStorage.getItem('theme') || systemTheme;
-document.documentElement.dataset.language = localStorage.getItem('language') || 'en';
+document.documentElement.dataset.language = ['ko', 'Kor'].includes(localStorage.getItem('language')) ? 'ko' : 'en';
 
 const themeIcon = (theme) => (theme === 'dark' ? '☀️' : '🌙');
+const langLabel = (lang) => (lang === 'ko' ? 'Kor' : 'Eng');
 
 elements.themeToggle.addEventListener('click', () => {
   const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
@@ -22,7 +23,7 @@ elements.languageToggle.addEventListener('click', () => {
   const next = document.documentElement.dataset.language === 'ko' ? 'en' : 'ko';
   document.documentElement.dataset.language = next;
   localStorage.setItem('language', next);
-  elements.languageToggle.textContent = next === 'ko' ? 'en' : 'ko';
+  elements.languageToggle.textContent = langLabel(next);
 });
 
 elements.menuButton.addEventListener('click', () => {
@@ -30,16 +31,6 @@ elements.menuButton.addEventListener('click', () => {
   elements.menuButton.setAttribute('aria-expanded', String(isOpen));
 });
 
-document.querySelectorAll('.topic-tab').forEach((tab) => {
-  tab.addEventListener('click', () => {
-    const topic = tab.dataset.topic;
-    document.querySelectorAll('.topic-tab').forEach((item) => item.classList.toggle('active', item === tab));
-    document.querySelectorAll('.topic-panel').forEach((panel) => {
-      panel.classList.toggle('active', panel.dataset.topicPanel === topic);
-    });
-  });
-});
-
 elements.themeToggle.textContent = themeIcon(document.documentElement.dataset.theme);
-elements.languageToggle.textContent = document.documentElement.dataset.language === 'ko' ? 'en' : 'ko';
+elements.languageToggle.textContent = langLabel(document.documentElement.dataset.language);
 document.querySelector('#year').textContent = new Date().getFullYear();
